@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nini Petriashvili</title>
+<meta name="description" content="Nini Petriashvili — PhD Candidate in Political and Social Sciences, European University Institute">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Noto+Serif+Georgian:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+/* ============================================================
+   Nini Petriashvili — personal website
+   To change the banner photo, edit --hero-img and --hero-pos below.
+   ============================================================ */
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+:root {
+  --hero-img: url("img/bg_opt1.jpg");
+  --hero-pos: center 72%;
+  --ink:#1f1a17; --ink-2:#4a423c; --ink-3:#8a8079;
+  --wine:#8c1c2b; --wine-dk:#6a1420; --sand:#c79a52; --paper:#faf7f2; --paper-2:#f1ebe2;
+  --line:#e4dbcf; --white:#fff;
+  --serif:"Fraunces", Georgia, "Times New Roman", serif;
+  --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+html { scroll-behavior:smooth; scroll-padding-top:70px; }
+body { font-family:var(--sans); color:var(--ink); background:var(--paper); line-height:1.7; font-size:16px; }
+a { color:var(--wine); text-decoration:none; }
+a:hover { color:var(--wine-dk); text-decoration:underline; text-underline-offset:3px; }
+img { max-width:100%; display:block; }
+
+/* ── Navigation: transparent over the banner, solid after scroll ── */
+.nav { position:fixed; inset:0 0 auto 0; z-index:50; transition:background .3s, box-shadow .3s; }
+.nav-inner { max-width:1080px; margin:0 auto; padding:1.1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.nav-name { font-family:var(--serif); font-weight:600; font-size:1.15rem; color:#fff; letter-spacing:.01em; }
+.nav-links { display:flex; flex-wrap:wrap; gap:.25rem 1.4rem; }
+.nav-links a { color:rgba(255,255,255,.9); font-size:.82rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase; }
+.nav-links a:hover { color:#fff; text-decoration:none; border-bottom:1px solid var(--sand); }
+.nav.solid { background:rgba(250,247,242,.97); box-shadow:0 1px 0 var(--line); backdrop-filter:blur(6px); }
+.nav.solid .nav-inner { padding-top:.75rem; padding-bottom:.75rem; }
+.nav.solid .nav-name { color:var(--ink); }
+.nav.solid .nav-links a { color:var(--ink-2); }
+.nav.solid .nav-links a:hover { color:var(--wine); }
+
+/* ── Banner ── */
+.hero { position:relative; min-height:82vh; display:flex; align-items:flex-end; color:#fff;
+  background:var(--hero-img) var(--hero-pos) / cover no-repeat; }
+.hero::before { content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(15,10,8,.50) 0%, rgba(15,10,8,.08) 26%, rgba(15,10,8,.12) 50%, rgba(15,10,8,.80) 100%); }
+.hero-inner { position:relative; max-width:1080px; width:100%; margin:0 auto; padding:0 1.5rem 4.5rem; }
+.hero h1 { font-family:var(--serif); font-weight:700; font-size:clamp(2.4rem, 6vw, 4.4rem); line-height:1.05; letter-spacing:-.01em; text-shadow:0 2px 18px rgba(0,0,0,.35); }
+.hero .role { margin-top:.8rem; font-size:clamp(1rem, 1.8vw, 1.2rem); font-weight:500; color:rgba(255,255,255,.92); }
+.hero .role span { color:var(--sand); padding:0 .4rem; }
+.hero .scroll { position:absolute; left:50%; bottom:1.2rem; transform:translateX(-50%); color:rgba(255,255,255,.75); font-size:1.1rem; animation:bob 2.2s ease-in-out infinite; }
+@keyframes bob { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,6px)} }
+
+/* ── Sections ── */
+section { padding:4.5rem 1.5rem; }
+section.alt { background:var(--paper-2); }
+.container { max-width:1080px; margin:0 auto; }
+.eyebrow { font-size:.72rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--wine); margin-bottom:.4rem; }
+h2 { font-family:var(--serif); font-weight:600; font-size:clamp(1.7rem, 3vw, 2.2rem); line-height:1.2; margin-bottom:1.8rem; }
+h2::after { content:""; display:block; width:48px; height:3px; background:var(--sand); margin-top:.7rem; }
+
+/* About */
+.about { display:grid; grid-template-columns:1fr 210px; gap:3.5rem; align-items:start; }
+.about p { color:var(--ink-2); margin-bottom:1.1rem; font-size:1.02rem; }
+.about strong { color:var(--ink); font-weight:600; }
+.portrait img { width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center 30%; border-radius:4px; }
+.contact { margin-top:1.1rem; display:flex; flex-direction:column; gap:.5rem; font-size:.88rem; }
+.contact a, .contact span { color:var(--ink-2); display:flex; align-items:center; gap:.6rem; }
+.contact i { width:1rem; color:var(--wine); text-align:center; }
+.contact a:hover { color:var(--wine); }
+.btn { display:inline-flex; align-items:center; gap:.5rem; padding:.6rem 1.15rem; border-radius:3px; background:var(--wine); color:#fff !important; font-size:.85rem; font-weight:600; letter-spacing:.02em; margin-top:.6rem; transition:background .2s; }
+.btn:hover { background:var(--wine-dk); text-decoration:none; }
+.btn.outline { background:transparent; color:var(--wine) !important; border:1.5px solid var(--wine); }
+.btn.outline:hover { background:var(--wine); color:#fff !important; }
+.interests { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.4rem; }
+.interests span { font-size:.78rem; padding:.3rem .8rem; border:1px solid var(--line); background:#fff; border-radius:999px; color:var(--ink-2); }
+
+/* Research */
+.jmp { background:#fff; border-left:4px solid var(--wine); padding:1.8rem 2rem; border-radius:2px; box-shadow:0 10px 30px -18px rgba(60,30,20,.35); margin-bottom:2.2rem; }
+.jmp .label { font-size:.72rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--sand); }
+.jmp h3 { font-family:var(--serif); font-weight:600; font-size:1.45rem; line-height:1.3; margin:.4rem 0 .6rem; }
+.jmp p { color:var(--ink-2); margin-bottom:.6rem; }
+.agenda { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:2.4rem; }
+.agenda div { padding-top:1rem; border-top:1px solid var(--line); }
+.agenda h4 { font-family:var(--serif); font-size:1.1rem; font-weight:600; margin-bottom:.35rem; }
+.agenda p { color:var(--ink-2); font-size:.95rem; }
+.papers { display:flex; flex-direction:column; }
+.paper { display:grid; grid-template-columns:150px 1fr; gap:1.5rem; padding:1.2rem 0; border-bottom:1px solid var(--line); }
+.paper:first-child { border-top:1px solid var(--line); }
+.paper .kind { font-size:.72rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--wine); padding-top:.25rem; }
+.paper h4 { font-family:var(--serif); font-weight:600; font-size:1.08rem; line-height:1.4; }
+.paper p { font-size:.9rem; color:var(--ink-2); margin-top:.2rem; }
+.paper .award { color:#9a6a1c; font-weight:600; font-size:.84rem; margin-top:.35rem; }
+
+/* CV lists (education / experience / teaching / talks) */
+.cv { display:flex; flex-direction:column; }
+.cv-row { display:grid; grid-template-columns:170px 1fr; gap:1.5rem; padding:1.05rem 0; border-bottom:1px dashed var(--line); }
+.cv-row:last-child { border-bottom:none; }
+.cv-date { font-size:.85rem; color:var(--ink-3); font-variant-numeric:tabular-nums; padding-top:.15rem; }
+.cv-title { font-weight:600; color:var(--ink); }
+.cv-org { color:var(--wine); font-size:.93rem; }
+.cv-org em { color:var(--ink-3); font-style:normal; }
+.cv-note { color:var(--ink-2); font-size:.9rem; margin-top:.25rem; }
+.cv-note ul { padding-left:1.1rem; }
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; }
+h3.sub { font-family:var(--serif); font-weight:600; font-size:1.3rem; margin:0 0 .6rem; }
+details.more { margin-top:1.4rem; }
+details.more summary { cursor:pointer; font-weight:600; font-size:.9rem; color:var(--wine); list-style:none; }
+details.more summary::-webkit-details-marker { display:none; }
+details.more summary::before { content:"+ "; }
+details.more[open] summary::before { content:"− "; }
+details.more .cv { margin-top:.6rem; }
+
+/* Awards */
+.awards { width:100%; border-collapse:collapse; font-size:.95rem; }
+.awards td { padding:.85rem .5rem; border-bottom:1px solid var(--line); vertical-align:top; }
+.awards td:first-child { width:80px; font-family:var(--serif); font-weight:600; color:var(--wine); font-size:1.05rem; }
+.awards td:last-child { text-align:right; white-space:nowrap; color:var(--ink-3); font-variant-numeric:tabular-nums; }
+
+.skills { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:2.6rem; }
+.skills h4 { font-size:.72rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--wine); margin-bottom:.4rem; }
+.skills p { color:var(--ink-2); }
+
+/* Footer band reuses the banner photo */
+.footer-band { position:relative; color:#fff; text-align:center; padding:4.5rem 1.5rem 3rem;
+  background:var(--hero-img) var(--hero-pos) / cover no-repeat; }
+.footer-band::before { content:""; position:absolute; inset:0; background:rgba(20,12,10,.78); }
+.footer-band > * { position:relative; }
+.footer-band h2 { color:#fff; margin-bottom:1rem; }
+.footer-band h2::after { margin:.7rem auto 0; }
+.footer-band p { color:rgba(255,255,255,.85); margin-bottom:1.2rem; }
+.footer-band .btn { background:var(--sand); color:var(--ink) !important; }
+.footer-band .btn:hover { background:#d9ad66; }
+.footer-band small { display:block; margin-top:2.5rem; color:rgba(255,255,255,.55); font-size:.78rem; }
+
+@media (max-width:860px) {
+  .about, .two-col, .agenda, .skills { grid-template-columns:1fr; gap:2rem; }
+  .portrait { max-width:190px; order:-1; }
+  .nav-links { display:none; }
+  .nav.open .nav-links { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--paper); padding:1rem 1.5rem; box-shadow:0 8px 20px rgba(0,0,0,.08); }
+  .nav.open .nav-links a { color:var(--ink-2); }
+  .menu-btn { display:block !important; }
+}
+@media (max-width:560px) {
+  .paper, .cv-row { grid-template-columns:1fr; gap:.3rem; }
+  .jmp { padding:1.4rem 1.2rem; }
+  .hero { min-height:72vh; }
+}
+.menu-btn { display:none; background:none; border:none; color:#fff; font-size:1.3rem; cursor:pointer; }
+.nav.solid .menu-btn, .nav.open .menu-btn { color:var(--ink); }
+.nav.open { background:var(--paper); }
+.nav.open .nav-name { color:var(--ink); }
+
+.portrait img { aspect-ratio:4/5; }
+.name-toggle { cursor:pointer; display:inline-grid; user-select:none; }
+.name-toggle > span { grid-area:1/1; transition:opacity .45s ease, transform .45s ease; }
+.name-toggle .ka { font-family:'Noto Serif Georgian', var(--serif); font-weight:700; opacity:0; transform:translateY(8px); }
+.name-toggle.show-ka .en { opacity:0; transform:translateY(-8px); }
+.name-toggle.show-ka .ka { opacity:1; transform:none; }
+.name-hint { display:inline-flex; align-items:center; gap:.45rem; margin-top:.7rem; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.35); color:#fff; font:500 .78rem/1 Inter, sans-serif; letter-spacing:.04em; padding:.45rem .8rem; border-radius:999px; cursor:pointer; backdrop-filter:blur(4px); }
+.name-hint:hover { background:rgba(255,255,255,.24); }
+.name-hint .ka-label { font-family:'Noto Serif Georgian', serif; }
+.paper .coauth { color:var(--ink-2); font-size:.95rem; margin-top:.2rem; }
+.icon-row { display:flex; gap:.6rem; margin-top:1.1rem; }
+.icon-row a { width:38px; height:38px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); background:#fff; color:var(--wine); font-size:1rem; transition:background .2s, color .2s, border-color .2s, transform .2s; }
+.icon-row a:hover { background:var(--wine); color:#fff; border-color:var(--wine); transform:translateY(-2px); }
+.icon-row + .contact { margin-top:.8rem; }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Nini Petriashvili</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <h1 class="name-toggle" id="nameToggle" title="Click for the Georgian spelling" role="button" tabindex="0" aria-label="Nini Petriashvili, click to show the Georgian spelling"><span class="en" lang="en">Nini Petriashvili</span><span class="ka" lang="ka" aria-hidden="true">ნინი პეტრიაშვილი</span></h1>
+    <div><button class="name-hint" id="nameHint" type="button"><i class="fas fa-language"></i><span id="hintText">Show in <span class="ka-label">ქართული</span></span></button></div>
+    <p class="role">PhD Candidate in Political and Social Sciences<span>·</span>European University Institute</p>
+  </div>
+  <a class="scroll" href="#about" aria-label="Scroll down"><i class="fas fa-chevron-down"></i></a>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about">
+    <div>
+      <p class="eyebrow">About</p>
+      <p>
+        I am a PhD candidate in the Department of Political and Social Sciences at the
+        <a href="https://www.eui.eu/en/academic-units/political-and-social-sciences" target="_blank" rel="noopener">European University Institute</a>
+        in Florence. My research focuses on two main areas. First, I study
+        political belief updating in the context of human&ndash;AI interaction, with particular attention to how different
+        types of information environments (e.g., data voids) shape these processes. Second, I examine
+        national identity formation and institutional development in post-Soviet countries.
+      </p>
+      <p>
+        Before joining the EUI, I obtained master's degrees from the University of Mannheim (2023) and Central European University (2020).
+        In 2026, I was a visiting student at the Wilf Family Department of Politics at New York University and at NYU's
+        Center for Social Media, AI, and Politics (CSMaP).
+      </p>
+      <div class="interests">
+        <span>Political Communication</span><span>Search Engines</span><span>Social Media</span><span>Misinformation</span>
+        <span>Political Psychology</span><span>Political Culture</span><span>Political Economy</span><span>Computational Social Science</span>
+      </div>
+    </div>
+    <aside class="portrait">
+      <img src="img/nini.jpg" alt="Portrait of Nini Petriashvili">
+      <div class="icon-row">
+        <a href="mailto:nini.petriashvili@eui.eu" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.eui.eu/people?id=nino-petriashvili" target="_blank" rel="noopener" title="EUI profile" aria-label="EUI profile"><i class="fas fa-building-columns"></i></a>
+        <a href="https://www.linkedin.com/in/nini-petriashvili-20136813b/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/Nini-Petrias" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="contact">
+        <span><i class="fas fa-location-dot"></i>Florence, Italy</span>
+      </div>
+      <a class="btn" href="CV_Nini_Petriashvili.pdf" target="_blank" rel="noopener"><i class="fas fa-file-arrow-down"></i>Download CV</a>
+    </aside>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="alt">
+  <div class="container">
+    <p class="eyebrow">Research</p>
+    <h2>Research interests</h2>
+
+    <div class="agenda">
+      <div>
+        <h4>Belief updating &amp; human&ndash;AI interaction</h4>
+        <p>How search engines, AI tools, and information environments such as data voids shape how people update their political beliefs and respond to misinformation.</p>
+      </div>
+      <div>
+        <h4>Identity &amp; institutions</h4>
+        <p>National identity formation and institutional development in post-Soviet countries.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Work in progress</h3>
+    <div class="papers">
+      <div class="paper">
+        <div class="kind">Working paper</div>
+        <div>
+          <h4>Searching Through Data Voids: Belief Updating in Misinformation Environments</h4>
+          <p>Presented at APSA 2025 (Vancouver) and the Digital Publics Conference 2026 (Zurich).</p>
+        </div>
+      </div>
+      <div class="paper">
+        <div class="kind">Ongoing project</div>
+        <div>
+          <h4>Search Engines, AI, and Political Attitudes</h4>
+          <p class="coauth">with Kylan Rutherford, Jonathan Nagler, and Joshua Tucker</p>
+          <p>Collaborative research project at NYU's Center for Social Media, AI, and Politics (2026).</p>
+        </div>
+      </div>
+      <div class="paper">
+        <div class="kind">Ongoing project</div>
+        <div>
+          <h4>National Identity Building via Education in 19th-Century Georgia</h4>
+          <p class="coauth">with Givi Silagadze (European University Institute)</p>
+        </div>
+      </div>
+      <div class="paper">
+        <div class="kind">Ongoing project</div>
+        <div>
+          <h4>Voting Advice Applications: A Systematic Literature Review</h4>
+          <p class="coauth">with Jonathan Vincent and Christoph Sajons</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CV -->
+<section id="cv">
+  <div class="container">
+    <p class="eyebrow">Curriculum Vitae</p>
+    <h2>Education &amp; experience</h2>
+
+    <div class="two-col">
+      <div>
+        <h3 class="sub">Education</h3>
+        <div class="cv">
+          <div class="cv-row"><div class="cv-date">2026</div><div><div class="cv-title">Visiting PhD Student, Department of Politics</div><div class="cv-org">New York University <em>· New York</em></div></div></div>
+          <div class="cv-row"><div class="cv-date">2023 – present</div><div><div class="cv-title">PhD, Political and Social Sciences</div><div class="cv-org">European University Institute <em>· Florence</em></div><div class="cv-note">Thesis: <em>Can Conspiratorial Thinking Be Corrected?</em> Supervisor: Elias Dinas</div></div></div>
+          <div class="cv-row"><div class="cv-date">2021 – 2023</div><div><div class="cv-title">MA in Political Science</div><div class="cv-org">University of Mannheim <em>· Mannheim</em></div><div class="cv-note">Thesis: <em>How Do Media Diet and Conspiracy Mentality Affect Political Activism?</em></div></div></div>
+          <div class="cv-row"><div class="cv-date">2019 – 2020</div><div><div class="cv-title">MA in Political Science, Political Economy</div><div class="cv-org">Central European University <em>· Budapest</em></div><div class="cv-note">Thesis: <em>The Impact of Democratic Maturity on Ideological Congruence</em>. Supervisor: Prof. Gabor Toka</div></div></div>
+        </div>
+
+        <h3 class="sub" style="margin-top:2.4rem">Teaching</h3>
+        <div class="cv">
+          <div class="cv-row"><div class="cv-date">Oct – Nov 2026</div><div><div class="cv-title">Lecturer, MA seminar &ldquo;Introduction to AI and Politics&rdquo;</div><div class="cv-org">University of Lucerne <em>· Lucerne</em></div></div></div>
+          <div class="cv-row"><div class="cv-date">Oct – Dec 2025</div><div><div class="cv-title">Lab Assistant, Introduction to Quantitative Methods</div><div class="cv-org">European University Institute <em>· Florence</em></div></div></div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="sub">Academic service</h3>
+        <div class="cv">
+          <div class="cv-row"><div class="cv-date">2025</div><div><div class="cv-title">Organizer, Political Behaviour Colloquium (PBC)</div><div class="cv-org">European University Institute <em>· Florence</em></div><div class="cv-note">Co-organized with Sigfried Manschen.</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="skills" style="margin-top:3rem">
+      <div><h4>Computing</h4><p>R · Python · GitHub · Overleaf</p></div>
+      <div><h4>Languages</h4><p>Georgian (native) · English (fluent) · German (advanced) · Russian (intermediate)</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="footer-band" id="contact">
+  <h2>Get in touch</h2>
+  <p>I am happy to hear from you about research and collaborations.</p>
+  <a class="btn" href="mailto:nini.petriashvili@eui.eu"><i class="fas fa-envelope"></i>nini.petriashvili@eui.eu</a>
+  <small>&copy; 2026 Nini Petriashvili · Banner photo taken by me in Tbilisi, Georgia, September 2026</small>
+</div>
+
+<script>
+(function () {
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('solid', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll); onScroll();
+  document.getElementById('menuBtn').addEventListener('click', () => nav.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+})();
+(function () {
+  const h = document.getElementById('nameToggle'), b = document.getElementById('nameHint'), t = document.getElementById('hintText');
+  const flip = () => {
+    const ka = h.classList.toggle('show-ka');
+    h.querySelector('.en').setAttribute('aria-hidden', ka); h.querySelector('.ka').setAttribute('aria-hidden', !ka);
+    t.innerHTML = ka ? 'Show in English' : 'Show in <span class="ka-label">ქართული</span>';
+  };
+  h.addEventListener('click', flip); b.addEventListener('click', flip);
+  h.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+})();
+</script>
+</body>
+</html>
